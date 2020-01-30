@@ -1,6 +1,6 @@
 import React from "react";
-import Task from "../task/Task";
-import "./Tasks.css";
+import Task from "../task/task";
+import "./tasks.css";
 function Tasks() {
   return (
     <section className="tasks">
