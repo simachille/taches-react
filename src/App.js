@@ -11,7 +11,7 @@ function App() {
   return (
     <section className="app-wrapper">
       <Header />
-      <main>
+      <main className="container">
         <Tasks />
       </main>
       <Footer />
