@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./task.css";
+import "./task-item.css";
 
-class Task extends Component {
+class TaskItem extends Component {
   state = {
     task: {
       title: "titre",
@@ -27,4 +27,4 @@ class Task extends Component {
     );
   }
 }
-export default Task;
+export default TaskItem;

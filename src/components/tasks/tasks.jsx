@@ -1,13 +1,10 @@
 import React from "react";
-import Task from "../task/task";
 import "./tasks.css";
+import TaskItem from "../task-item/task-item";
 function Tasks() {
   return (
     <section className="tasks">
-      <Task />
-      <Task />
-      <Task />
-      <Task />
+      <TaskItem />
     </section>
   );
 }
