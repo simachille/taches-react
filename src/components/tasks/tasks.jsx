@@ -3,7 +3,7 @@ import "./tasks.css";
 import TaskItem from "../task-item/task-item";
 function Tasks() {
   return (
-    <section className="tasks">
+    <section className="tasks row">
       <TaskItem />
     </section>
   );
