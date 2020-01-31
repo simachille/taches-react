@@ -7,9 +7,9 @@ function Tasks({ tasks }) {
     <React.Fragment>
       <section className="tasks row d-flex my-3">
         {columns.map(column => (
-          <div className="col-md-3">
+          <div className="col-md-3" key={column.id}>
             <div className="col py-3">
-              <h3 className="text-center font-weigt-900">{column.title}</h3>
+              <h3 className="font-weigt-600 col-title">{column.title}</h3>
               {tasks
                 .filter(task => task.statut === column.id)
                 .map(task => (
