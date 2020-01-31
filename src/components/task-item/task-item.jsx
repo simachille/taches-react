@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./task-item.css";
-
 class TaskItem extends Component {
   constructor(props) {
     super(props);
@@ -8,20 +7,35 @@ class TaskItem extends Component {
 
   render() {
     return (
-      <div className="col-md-4">
-        <div className="card task">
+      <div className="col-md-4 mb-3">
+        <div className="card task-item">
           <div className="card-body">
-            <h2 className="card-title">{this.props.task.title}</h2>
-            <div className="card-text">
-              <ul>
-                {this.props.users.map(user => (
-                  <li key="{user.id}">{user.name}</li>
-                ))}
-              </ul>
-            </div>
+            <h5 className="card-title">{this.props.task.title}</h5>
+            <div className="card-text">{this.renderUsers()}</div>
           </div>
         </div>
       </div>
+    );
+  }
+
+  renderUsers() {
+    if (
+      !this.props ||
+      !this.props.task.users ||
+      this.props.task.users.length === 0
+    ) {
+      return <p>Aucun utilisateur n'est affecté à cette tache</p>;
+    }
+
+    return (
+      <ul>
+        {this.props.task.users.map(user => (
+          <li key={user.id}>
+            <span className="text-capitalize mr-1">{user.firstName}</span>
+            <span className="text-uppercase">{user.lastName}</span>
+          </li>
+        ))}
+      </ul>
     );
   }
 }
