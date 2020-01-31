@@ -7,12 +7,10 @@ class TaskItem extends Component {
 
   render() {
     return (
-      <div className="col-md-4 mb-3">
-        <div className="card task-item">
-          <div className="card-body">
-            <h5 className="card-title">{this.props.task.title}</h5>
-            <div className="card-text">{this.renderUsers()}</div>
-          </div>
+      <div className="card task-item mb-2">
+        <div className="card-body">
+          <h5 className="card-title">{this.props.task.title}</h5>
+          <div className="card-text">{this.renderUsers()}</div>
         </div>
       </div>
     );
