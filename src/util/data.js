@@ -1,3 +1,26 @@
+/*
+[
+  '{{repeat(5, 7)}}',
+  {
+    id: '{{objectId()}}',
+    title:'{{lorem(4, "words")}}',
+    description: '{{lorem(20, "words")}}',
+    status: '{{integer(1,4)}}',
+    ti: '{{integer(14, 35)}}',
+    tr: '{{integer(0, 35)}}',
+    users: [
+      '{{repeat(3)}}',
+      {
+        id: '{{objectId()}}',
+        firstName: '{{firstName()}}',
+        lastName: '{{surname()}}',
+        email: '{{email()}}'
+      }
+    ]   
+  }
+]
+*/
+
 export const columns = [
   {
     id: 1,
