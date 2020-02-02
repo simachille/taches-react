@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Jumbotron, Button, Row, Col } from "react-bootstrap";
+
 const Welcome = () => {
   const history = useHistory();
   const redirectToTasks = () => {

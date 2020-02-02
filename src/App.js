@@ -7,7 +7,7 @@ import Welcome from "./components/welcome/welcome";
 import Tasks from "./components/tasks/tasks";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import NoMath from "./components/404/no-match";
+import NoMath from "./components/no-match/no-match";
 
 function App() {
   return (

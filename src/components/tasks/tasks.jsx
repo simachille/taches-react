@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./tasks.css";
 import { columns } from "../../util/data";
 import TaskItem from "../task-item/task-item";
-
 import { TASKS_URL } from "../../util/data";
 
 function Tasks() {
