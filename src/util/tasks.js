@@ -3,8 +3,11 @@
   '{{repeat(5, 7)}}',
   {
     id: '{{index()}}',
-    title:  
-      '{{lorem(4, "words")}}',
+    title:'{{lorem(4, "words")}}',
+    description: '{{lorem(20, "words")}}',
+    status: '{{integer(1,4)}}',
+    ti: '{{integer(14, 35)}}',
+    tr: '{{integer(0, 35)}}',
     users: [
       '{{repeat(3)}}',
       {
@@ -14,199 +17,211 @@
         email: '{{email()}}'
       }
     ]
-   
-    
   }
 ]
 */
-export const columns = [
-  {
-    id: 1,
-    title: "TODO"
-  },
-  {
-    id: 2,
-    title: "WIP"
-  },
-  {
-    id: 3,
-    title: "TEST"
-  },
-  {
-    id: 4,
-    title: "DONE"
-  }
-];
-export const tasks_data = [
+
+export const tasks = [
   {
     id: 0,
-    title: "minim occaecat ad ut",
-    description: "occaecat dolore qui aliqua magna nisi ut laborum labore in",
-    statut: 1,
-    ti: 23,
-    tr: 13,
+    title: "consectetur velit amet proident",
+    description:
+      "velit id enim tempor ea in qui anim cupidatat nisi ipsum eiusmod laborum est esse veniam nisi irure nulla adipisicing",
+    status: 2,
+    ti: 16,
+    tr: 31,
     users: [
       {
         id: 0,
-        firstName: "Jimenez",
-        lastName: "Delacruz",
-        email: "jimenezdelacruz@bolax.com"
+        firstName: "Parsons",
+        lastName: "Russell",
+        email: "parsonsrussell@idetica.com"
       },
       {
         id: 1,
-        firstName: "Pennington",
-        lastName: "Klein",
-        email: "penningtonklein@bolax.com"
+        firstName: "Eileen",
+        lastName: "Blake",
+        email: "eileenblake@idetica.com"
       },
       {
         id: 2,
-        firstName: "Marcy",
-        lastName: "Hernandez",
-        email: "marcyhernandez@bolax.com"
+        firstName: "Rosa",
+        lastName: "Murray",
+        email: "rosamurray@idetica.com"
       }
     ]
   },
   {
     id: 1,
-    title: "irure non laborum mollit",
+    title: "ex pariatur enim voluptate",
     description:
-      "duis nisi ex veniam culpa cupidatat laboris eiusmod occaecat reprehenderit",
-    statut: 3,
-    ti: 27,
-    tr: 17,
+      "laborum aliquip pariatur consequat velit aute aute nulla ipsum sint adipisicing deserunt excepteur ex do proident do nisi tempor aute",
+    status: 4,
+    ti: 26,
+    tr: 32,
     users: [
       {
         id: 0,
-        firstName: "Tania",
-        lastName: "Maldonado",
-        email: "taniamaldonado@bolax.com"
+        firstName: "Lucy",
+        lastName: "Melendez",
+        email: "lucymelendez@idetica.com"
       },
       {
         id: 1,
-        firstName: "Barbra",
-        lastName: "Head",
-        email: "barbrahead@bolax.com"
+        firstName: "Lorna",
+        lastName: "Gay",
+        email: "lornagay@idetica.com"
       },
       {
         id: 2,
-        firstName: "Joni",
-        lastName: "Valenzuela",
-        email: "jonivalenzuela@bolax.com"
+        firstName: "Sandra",
+        lastName: "Elliott",
+        email: "sandraelliott@idetica.com"
       }
     ]
   },
   {
     id: 2,
-    title: "dolor voluptate anim occaecat",
+    title: "ea occaecat reprehenderit elit",
     description:
-      "sint pariatur incididunt id tempor elit consectetur qui fugiat eu",
-    statut: 4,
-    ti: 32,
-    tr: 4,
+      "consectetur consequat nostrud nisi eiusmod aliqua in cillum exercitation consequat aliqua sunt dolore excepteur anim dolor eiusmod non ad ea",
+    status: 4,
+    ti: 23,
+    tr: 3,
     users: [
       {
         id: 0,
-        firstName: "Mckinney",
-        lastName: "Bernard",
-        email: "mckinneybernard@bolax.com"
+        firstName: "William",
+        lastName: "Beck",
+        email: "williambeck@idetica.com"
       },
       {
         id: 1,
-        firstName: "Nadia",
-        lastName: "Norman",
-        email: "nadianorman@bolax.com"
+        firstName: "Merrill",
+        lastName: "Hahn",
+        email: "merrillhahn@idetica.com"
       },
       {
         id: 2,
-        firstName: "Letitia",
-        lastName: "Hammond",
-        email: "letitiahammond@bolax.com"
+        firstName: "Mckinney",
+        lastName: "Berry",
+        email: "mckinneyberry@idetica.com"
       }
     ]
   },
   {
     id: 3,
-    title: "commodo nostrud amet excepteur",
-    description: "officia eu eu laboris quis amet incididunt veniam minim sint",
-    statut: 2,
-    ti: 32,
-    tr: 4,
+    title: "consequat sunt proident incididunt",
+    description:
+      "exercitation officia sunt magna aute duis velit qui nostrud aliqua cupidatat deserunt esse fugiat sint fugiat dolore eu excepteur commodo",
+    status: 3,
+    ti: 30,
+    tr: 32,
     users: [
       {
         id: 0,
-        firstName: "Kelley",
-        lastName: "Prince",
-        email: "kelleyprince@bolax.com"
+        firstName: "Angelique",
+        lastName: "Adams",
+        email: "angeliqueadams@idetica.com"
       },
       {
         id: 1,
-        firstName: "Floyd",
-        lastName: "Matthews",
-        email: "floydmatthews@bolax.com"
+        firstName: "Sue",
+        lastName: "Benton",
+        email: "suebenton@idetica.com"
       },
       {
         id: 2,
-        firstName: "Reeves",
-        lastName: "Randolph",
-        email: "reevesrandolph@bolax.com"
+        firstName: "Guerra",
+        lastName: "Prince",
+        email: "guerraprince@idetica.com"
       }
     ]
   },
   {
     id: 4,
-    title: "nulla nulla in ea",
+    title: "labore proident excepteur fugiat",
     description:
-      "minim voluptate adipisicing ex excepteur aliqua deserunt dolore et sit",
-    statut: 4,
-    ti: 27,
-    tr: 6,
+      "aliqua aute labore in laborum quis officia ullamco amet qui ullamco quis ea ad est laborum anim ex exercitation enim",
+    status: 1,
+    ti: 14,
+    tr: 21,
     users: [
       {
         id: 0,
-        firstName: "Booth",
-        lastName: "Faulkner",
-        email: "boothfaulkner@bolax.com"
+        firstName: "Neva",
+        lastName: "Estrada",
+        email: "nevaestrada@idetica.com"
       },
       {
         id: 1,
-        firstName: "Cannon",
-        lastName: "Coffey",
-        email: "cannoncoffey@bolax.com"
+        firstName: "Serena",
+        lastName: "Norton",
+        email: "serenanorton@idetica.com"
       },
       {
         id: 2,
-        firstName: "Cole",
-        lastName: "Bullock",
-        email: "colebullock@bolax.com"
+        firstName: "Maryellen",
+        lastName: "Bolton",
+        email: "maryellenbolton@idetica.com"
       }
     ]
   },
   {
     id: 5,
-    title: "quis veniam aliqua aliquip",
+    title: "anim pariatur ullamco do",
     description:
-      "anim proident incididunt elit do minim consectetur dolore dolor cillum",
-    statut: 4,
-    ti: 22,
-    tr: 32,
+      "amet laboris aliquip et nulla irure anim labore sit amet deserunt ut non duis adipisicing eu ipsum ad magna irure",
+    status: 3,
+    ti: 33,
+    tr: 15,
     users: [
       {
         id: 0,
-        firstName: "Williamson",
-        lastName: "Romero",
-        email: "williamsonromero@bolax.com"
+        firstName: "Holland",
+        lastName: "Knox",
+        email: "hollandknox@idetica.com"
       },
       {
         id: 1,
-        firstName: "Josefa",
-        lastName: "Maxwell",
-        email: "josefamaxwell@bolax.com"
+        firstName: "Collins",
+        lastName: "Mayer",
+        email: "collinsmayer@idetica.com"
       },
       {
         id: 2,
-        firstName: "Jeannie",
-        lastName: "Deleon",
-        email: "jeanniedeleon@bolax.com"
+        firstName: "Camacho",
+        lastName: "Cooke",
+        email: "camachocooke@idetica.com"
+      }
+    ]
+  },
+  {
+    id: 6,
+    title: "velit exercitation occaecat ullamco",
+    description:
+      "est dolor pariatur in velit ipsum consectetur adipisicing laborum exercitation esse reprehenderit aliquip incididunt laboris laborum amet velit ex Lorem",
+    status: 2,
+    ti: 30,
+    tr: 18,
+    users: [
+      {
+        id: 0,
+        firstName: "Fannie",
+        lastName: "Mercado",
+        email: "fanniemercado@idetica.com"
+      },
+      {
+        id: 1,
+        firstName: "Jill",
+        lastName: "Summers",
+        email: "jillsummers@idetica.com"
+      },
+      {
+        id: 2,
+        firstName: "Jenna",
+        lastName: "Guerrero",
+        email: "jennaguerrero@idetica.com"
       }
     ]
   }

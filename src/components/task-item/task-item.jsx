@@ -1,15 +1,49 @@
 import React, { Component } from "react";
 import "./task-item.css";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+
 class TaskItem extends Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    fetch("SERVICE_URL")
+      .then(response => response.json())
+      .then(result => {
+        this.setState({ task: result, isFetching: false });
+      })
+      .catch(e => {
+        console.log(e);
+        this.setState({ ...this.state, isFetching: false });
+      });
   }
 
   render() {
+    const navDropdownTitle = <FontAwesomeIcon icon={faEllipsisV} />;
     return (
       <div className="card task-item mb-2">
         <div className="card-body p-2">
-          <h5 className="card-title">{this.props.task.title}</h5>
+          <h6 className="card-title d-flex justify-content-between">
+            <span className="mr-3">{this.props.task.title}</span>
+            <NavDropdown
+              direction="top"
+              title={navDropdownTitle}
+              id={"basic-nav-dropdown_" + this.props.task.id}
+            >
+              <NavDropdown.Item
+                onClick={() =>
+                  this.props.onMove(this.props.task.id, this.props.task.status)
+                }
+              >
+                déplacer
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item
+                onClick={() => this.props.onDelete(this.props.task.id)}
+              >
+                Supprimer
+              </NavDropdown.Item>
+            </NavDropdown>
+          </h6>
           <div className="card-text">{this.renderUsers()}</div>
         </div>
       </div>

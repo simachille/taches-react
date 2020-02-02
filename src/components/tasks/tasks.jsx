@@ -1,19 +1,33 @@
 import React from "react";
 import "./tasks.css";
-import { columns } from "../../util/tasks";
+import { columns } from "../../util/data";
 import TaskItem from "../task-item/task-item";
-function Tasks({ tasks }) {
+
+function Tasks(props) {
+  const handleMove = (taskId, taskStatus) => {
+    props.onMove(taskId, taskStatus);
+  };
+
+  const handleDelete = taskId => {
+    props.onDelete(taskId);
+  };
+
   return (
     <React.Fragment>
       <section className="tasks row d-flex my-3">
         {columns.map(column => (
           <div className="col-md-3" key={column.id}>
-            <div className="col py-3">
+            <div className="list">
               <h3 className="font-weigt-600 col-title">{column.title}</h3>
-              {tasks
-                .filter(task => task.statut === column.id)
+              {props.tasks
+                .filter(task => task.status === column.id)
                 .map(task => (
-                  <TaskItem task={task} key={task.id} status={task.status} />
+                  <TaskItem
+                    task={task}
+                    key={task.id}
+                    onMove={handleMove}
+                    onDelete={handleDelete}
+                  ></TaskItem>
                 ))}
             </div>
           </div>
