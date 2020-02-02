@@ -5,6 +5,7 @@ import { TASKS_URL } from "../../util/data";
 import { useForm } from "react-hook-form";
 const TaskEdit = ({ match }) => {
   const [item, setItem] = useState({});
+
   const { register, handleSubmit, errors } = useForm();
 
   const read = async () => {
@@ -38,14 +39,22 @@ const TaskEdit = ({ match }) => {
               >
                 <div className="form-group form-group-lg">
                   <label htmlFor="title">Titre</label>
+
                   <input
                     name="title"
                     type="text"
                     className="form-control form-control-lg"
                     id="title"
                     placeholder="Titre de l'annonce"
-                    ref={register}
+                    ref={register({
+                      required: "Ce champ est requis",
+                      minLength: { value: 6, message: "trop Court" }
+                    })}
                   />
+
+                  {errors.title && (
+                    <p className="text-danger">{errors.title.message}</p>
+                  )}
                 </div>
                 <div className="form-group form-group-lg">
                   <label htmlFor="description">Description</label>
@@ -54,7 +63,7 @@ const TaskEdit = ({ match }) => {
                     className="form-control form-control-lg"
                     id="description"
                     rows="3"
-                    ref={register}
+                    ref={register({ required: true })}
                   ></textarea>
                 </div>
                 <div className="form-group form-group-lg">
@@ -63,7 +72,7 @@ const TaskEdit = ({ match }) => {
                     name="status"
                     id="status"
                     className="form-control form-control-lg"
-                    ref={register}
+                    ref={register({ required: true })}
                   >
                     <option>Sélectionner un statut</option>
                     <option value="1">TO DO</option>
@@ -80,7 +89,7 @@ const TaskEdit = ({ match }) => {
                     className="form-control form-control-lg"
                     id="tr"
                     placeholder="Temps restant"
-                    ref={register}
+                    ref={register({ required: true })}
                   />
                 </div>
                 <div className="form-group form-group-lg">
