@@ -4,9 +4,10 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
+import { TASKS_URL } from "../../util/data";
 class TaskItem extends Component {
   componentDidMount() {
-    fetch("SERVICE_URL")
+    fetch(TASKS_URL + "/" + this.props.task.id)
       .then(response => response.json())
       .then(result => {
         this.setState({ task: result, isFetching: false });
@@ -18,28 +19,23 @@ class TaskItem extends Component {
   }
 
   render() {
+    const { task, onMove, onDelete } = this.props;
     const navDropdownTitle = <FontAwesomeIcon icon={faEllipsisV} />;
     return (
       <div className="card task-item mb-2">
         <div className="card-body p-2">
           <h6 className="card-title d-flex justify-content-between">
-            <span className="mr-3">{this.props.task.title}</span>
+            <span className="mr-3">{task.title}</span>
             <NavDropdown
               direction="top"
               title={navDropdownTitle}
-              id={"basic-nav-dropdown_" + this.props.task.id}
+              id={"basic-nav-dropdown_" + task.id}
             >
-              <NavDropdown.Item
-                onClick={() =>
-                  this.props.onMove(this.props.task.id, this.props.task.status)
-                }
-              >
+              <NavDropdown.Item onClick={() => onMove(task.id, task.status)}>
                 déplacer
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                onClick={() => this.props.onDelete(this.props.task.id)}
-              >
+              <NavDropdown.Item onClick={() => onDelete(task.id)}>
                 Supprimer
               </NavDropdown.Item>
             </NavDropdown>

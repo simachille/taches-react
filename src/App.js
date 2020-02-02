@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/header/header";
 import "./App.css";
 import Tasks from "./components/tasks/tasks";
-import { tasks } from "./util/tasks";
+import { TASKS_URL } from "./util/data";
 function App() {
-  const [taskList, setTasks] = useState(tasks);
-
-  useEffect(() => {});
+  const [taskList, setTasks] = useState([]);
 
   const getTasks = async () => {
-    const response = await fetch("/server/endpoint");
+    const response = await fetch(TASKS_URL);
     const data = await response.json();
-    console.log(data);
+    setTasks(data);
   };
 
   const handleDelete = taskId => {
@@ -27,6 +25,9 @@ function App() {
 
     setTasks(tasks);
   };
+  useEffect(() => {
+    getTasks();
+  }, []);
 
   return (
     <section className="app-wrapper">
