@@ -3,8 +3,8 @@ import "./task-item.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-
 import { TASKS_URL } from "../../util/data";
+
 class TaskItem extends Component {
   componentDidMount() {
     fetch(TASKS_URL + "/" + this.props.task.id)
@@ -31,8 +31,11 @@ class TaskItem extends Component {
               title={navDropdownTitle}
               id={"basic-nav-dropdown_" + task.id}
             >
+              <NavDropdown.Item href={`/taches/${task.id}`}>
+                Modifier
+              </NavDropdown.Item>
               <NavDropdown.Item onClick={() => onMove(task.id, task.status)}>
-                déplacer
+                Déplacer
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={() => onDelete(task.id)}>

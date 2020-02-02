@@ -1,28 +1,27 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Jumbotron, Button, Row, Col } from "react-bootstrap";
-const Welcome = () => {
-  const history = useHistory();
-  const redirectToTasks = () => {
-    history.push("/taches");
-  };
 
+const NoMath = () => {
+  const history = useHistory();
+  const redirectToHome = () => {
+    history.push("/");
+  };
   return (
     <section className="page d-flex align-items-center">
       <Container>
         <Row>
           <Col md={6} xs={6} className="mx-auto">
             <Jumbotron className="text-center">
-              <h1>Bienvenue</h1>
-              <p>Application de gestion des tâches</p>
+              <h1>Page inconnue</h1>
               <p>
                 <Button
                   onClick={() => {
-                    redirectToTasks();
+                    redirectToHome();
                   }}
                   variant="outline-primary"
                 >
-                  Liste des taches
+                  Accueil
                 </Button>
               </p>
             </Jumbotron>
@@ -33,4 +32,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default NoMath;
