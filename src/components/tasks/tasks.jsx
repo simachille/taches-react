@@ -3,6 +3,7 @@ import "./tasks.css";
 import { columns } from "../../util/data";
 import TaskItem from "../task-item/task-item";
 
+import { TASKS_URL } from "../../util/data";
 function Tasks(props) {
   const handleMove = (taskId, taskStatus) => {
     props.onMove(taskId, taskStatus);
