@@ -6,6 +6,10 @@ import { TASKS_URL } from "./util/data";
 function App() {
   const [taskList, setTasks] = useState([]);
 
+  useEffect(() => {
+    getTasks();
+  }, []);
+
   const getTasks = async () => {
     const response = await fetch(TASKS_URL);
     const data = await response.json();
@@ -25,9 +29,6 @@ function App() {
 
     setTasks(tasks);
   };
-  useEffect(() => {
-    getTasks();
-  }, []);
 
   return (
     <section className="app-wrapper">
