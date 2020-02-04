@@ -3,29 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./task-edit.css";
 import { TASKS_URL } from "../../util/data";
 import { useForm } from "react-hook-form";
+
 const TaskEdit = ({ match }) => {
   const [item, setItem] = useState({});
-
   const { register, handleSubmit, errors } = useForm();
-
   const read = async () => {
-    let promise = fetch(url, {
-      method: "GET", //ou POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "text/plain;charset=UTF-8" //pour un corps de type chaine
-      },
-      body: undefined, //ou string, FormData, Blob, BufferSource, ou URLSearchParams
-      referrer: "about:client", //ou "" (pas de réferanr) ou une url de l'origine
-      referrerPolicy: "no-referrer-when-downgrade", //ou no-referrer, origin, same-origin...
-      mode: "cors", //ou same-origin, no-cors
-      credentials: "same-origin", //ou omit, include
-      cache: "default", //ou no-store, reload, no-cache, force-cache, ou only-if-cached
-      redirect: "follow", //ou manual ou error
-      integrity: "", //ou un hash comme "sha256-abcdef1234567890"
-      keepalive: false, //ou true pour que la requête survive à la page
-      signal: undefined //ou AbortController pour annuler la requête
-    });
-
     const id = match.params.id;
     const response = await fetch(TASKS_URL + "/" + id);
     const data = await response.json();
@@ -35,6 +17,9 @@ const TaskEdit = ({ match }) => {
   const onSubmit = data => {
     console.log(data);
   };
+
+  onSubmit(data);
+
   useEffect(() => {
     read();
   }, []);
@@ -75,6 +60,7 @@ const TaskEdit = ({ match }) => {
                 </div>
                 <div className="form-group form-group-lg">
                   <label htmlFor="description">Description</label>
+
                   <textarea
                     name="description"
                     className="form-control form-control-lg"
@@ -82,6 +68,15 @@ const TaskEdit = ({ match }) => {
                     rows="3"
                     ref={register({ required: true })}
                   ></textarea>
+
+                  {errors.description &&
+                    errors.description.type === "required" && (
+                      <p className="text-danger">Champ requis</p>
+                    )}
+                  {errors.description &&
+                    errors.description.type === "maxLength" && (
+                      <p className="text-danger">Max length exceeded</p>
+                    )}
                 </div>
                 <div className="form-group form-group-lg">
                   <label htmlFor="description">Statut</label>
