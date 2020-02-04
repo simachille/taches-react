@@ -18,8 +18,6 @@ const TaskEdit = ({ match }) => {
     console.log(data);
   };
 
-  onSubmit(data);
-
   useEffect(() => {
     read();
   }, []);

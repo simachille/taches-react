@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Jumbotron, Button, Row, Col } from "react-bootstrap";
 
-const NoMath = () => {
+const NoMatch = () => {
   const history = useHistory();
   const redirectToHome = () => {
     history.push("/");
@@ -32,4 +32,4 @@ const NoMath = () => {
   );
 };
 
-export default NoMath;
+export default NoMatch;
