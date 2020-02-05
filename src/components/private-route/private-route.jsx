@@ -1,29 +1,14 @@
 import React, { useContext } from "react";
-import AuthProvider from "../../context/auth-provider";
+import { AuthContext } from "../../context/auth-provider";
 import { Route } from "react-router-dom";
+import SignIn from "../sign-in/sign-in";
 
 // Wrapper sur une route
-const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
-  const currentUser = useContext(AuthProvider);
-  const isAuthenticated = useAuth();
+const PrivateRoute = ({ component, ...options }) => {
+  const { currentUser } = useContext(AuthContext);
+  const finalComponent = currentUser ? component : SignIn;
 
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        !!currentUser ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              to: "/sign-in",
-              state: { from: props.location }
-            }}
-          />
-        )
-      }
-    />
-  );
+  return <Route {...options} component={finalComponent} />;
 };
 
 export default PrivateRoute;

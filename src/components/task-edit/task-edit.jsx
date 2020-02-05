@@ -7,20 +7,20 @@ import { useForm } from "react-hook-form";
 const TaskEdit = ({ match }) => {
   const [item, setItem] = useState({});
   const { register, handleSubmit, errors } = useForm();
-  const read = async () => {
+
+  const onSubmit = data => {
+    console.log(data);
+  };
+  const getTask = async () => {
     const id = match.params.id;
     const response = await fetch(TASKS_URL + "/" + id);
     const data = await response.json();
     setItem(data);
   };
 
-  const onSubmit = data => {
-    console.log(data);
-  };
-
   useEffect(() => {
-    read();
-  }, []);
+    getTask();
+  });
 
   return (
     <section className="page d-flex mt-4 align-items-top">

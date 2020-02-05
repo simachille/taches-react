@@ -34,7 +34,7 @@ function Tasks() {
       <h1 className="pb-2 pt-4 text-white">Tâches</h1>
       <section className="tasks row d-flex my-3">
         {columns.map(column => (
-          <div className="col-md-3" key={column.id}>
+          <div className="col-md-3 mb-2" key={column.id}>
             <div className="list">
               <h3 className="font-weigt-600 col-title">{column.title}</h3>
               {list

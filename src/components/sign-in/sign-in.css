@@ -1,0 +1,10 @@
+.row,
+body,
+.container-fluid,
+.container {
+  height: 100vh;
+}
+
+.main {
+  padding-bottom: 0 !important;
+}
