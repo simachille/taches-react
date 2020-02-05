@@ -5,6 +5,16 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+// STORE -- STATE GLOBAL; exple: countrer = 0
+
+// ACTION -- WHAT TO DO; INCREMENT
+// ACTION: Fonction qui retourne un objet
+// REDUCER: Describes how action transforms state into the next one, Check the actiion maded and based on that it is going to modifty the state
+
+// DISPATCHER: SENDS ACTION TO THE REDUCER
+
+// DISPATCHER envoit l'ACTION au REDUCER, le REDUCER met à jour le STORE
+
 ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
