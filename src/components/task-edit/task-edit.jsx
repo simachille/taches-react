@@ -92,6 +92,22 @@ const TaskEdit = ({ match }) => {
                   </select>
                 </div>
                 <div className="form-group form-group-lg">
+                  <label htmlFor="description">Utilisateurs</label>
+                  <select
+                    name="status"
+                    id="status"
+                    multiple
+                    className="form-control form-control-lg"
+                    ref={register({ required: true })}
+                  >
+                    <option>Sélectionner les utilisateurs</option>
+                    <option value="1">Jean paul</option>
+                    <option value="2">Henri Michel</option>
+                    <option value="3">Marie Antoinette</option>
+                    <option value="4">Anne Marie</option>
+                  </select>
+                </div>
+                <div className="form-group form-group-lg">
                   <label htmlFor="tr">Temps Restant</label>
                   <input
                     name="tr"
