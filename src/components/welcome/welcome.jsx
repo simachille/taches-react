@@ -8,9 +8,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { setWIP } from "../../actions";
 const Welcome = () => {
   // 6"- lecture d'une donnée
+
   const task = useSelector(state => state.taskReducer);
+
   const history = useHistory();
+
   const dispatch = useDispatch();
+
   const redirectToTasks = () => {
     history.push("/taches");
   };
@@ -22,7 +26,10 @@ const Welcome = () => {
         <Row className="align-items-center">
           <Col md={6} xs={6} className="mx-auto">
             <Jumbotron className="text-center">
-              <h1 onClick={() => dispatch(setWIP())}>Bienvenue {task}</h1>
+              <h2 className="title"> {task}</h2>
+
+              <button onClick={() => dispatch(setWIP())}>WIP</button>
+
               <p>Application de gestion des tâches</p>
               <p>
                 <Button

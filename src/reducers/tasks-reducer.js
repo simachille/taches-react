@@ -4,17 +4,15 @@
  *
  * Gère l'authentification
  */
+
 const taskReducer = (state = "TODO", action) => {
   switch (action.type) {
-    case "TODO":
-      console.log("Task status to ", 1);
-      return "TODO";
+    case "DONE":
+      return "DONE";
     case "WIP":
-      console.log("Task status to ", 1);
       return "WIP";
     default:
       return state;
   }
 };
-
 export default taskReducer;

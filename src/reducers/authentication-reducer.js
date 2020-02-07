@@ -8,7 +8,6 @@
 const authenticationReducer = (state = false, action) => {
   switch (action.type) {
     case "SIGN_IN":
-      console.log("login user ", 1);
       return !state;
 
     default:
