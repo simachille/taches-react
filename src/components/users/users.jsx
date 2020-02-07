@@ -16,7 +16,7 @@ function Users() {
     <section className="page d-flex align-items-center">
       <Container>
         <h1 className="text-white">Utilisateurs</h1>
-        <Row>
+        <Row className="align-items-center">
           <Col className="mx-auto">
             <Table striped bordered hover variant="dark">
               <thead>
