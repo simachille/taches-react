@@ -1,0 +1,28 @@
+.card-title {
+  line-height: 24px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #172b4d;
+}
+
+.card {
+  font-size: 15px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.dropdown-toggle::before,
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.dropdown .nav-link {
+  padding: 0;
+}
+
+.nav-link:hover,
+.nav-link {
+  color: #172b4d;
+  font-weight: bold;
+}
