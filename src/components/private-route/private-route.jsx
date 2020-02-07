@@ -5,8 +5,8 @@ import AuthContext from "../../context/auth-context";
 
 // Wrapper sur une route
 const PrivateRoute = ({ component, ...options }) => {
-  const { currentUser } = useContext(AuthContext);
-  const finalComponent = currentUser ? component : SignIn;
+  const { user } = useContext(AuthContext);
+  const finalComponent = user ? component : SignIn;
 
   return <Route {...options} component={finalComponent} />;
 };

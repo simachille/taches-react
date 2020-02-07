@@ -8,11 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setWIP } from "../../actions";
 const Welcome = () => {
   // 6"- lecture d'une donnée
-
   const task = useSelector(state => state.taskReducer);
-
   const history = useHistory();
-
   const dispatch = useDispatch();
 
   const redirectToTasks = () => {
