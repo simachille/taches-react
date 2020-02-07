@@ -4,3 +4,16 @@ export const setWIP = () => {
     payload: 2
   };
 };
+export const setTODO = () => {
+  return {
+    type: "TODO",
+    payload: 2
+  };
+};
+
+export const updateStatus = status => {
+  return {
+    type: "TODO",
+    payload: status
+  };
+};

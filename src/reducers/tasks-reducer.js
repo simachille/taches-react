@@ -5,14 +5,16 @@
  * Gère l'authentification
  */
 
-const taskReducer = (state = "TODO", action) => {
+const taskReducer = (state, action) => {
   switch (action.type) {
+    case "TODO":
+      return "Status actuel " + action.payload;
     case "DONE":
       return "DONE";
     case "WIP":
-      return "WIP";
+      return "WIP" + action.payload;
     default:
-      return state;
+      return "TODO";
   }
 };
 export default taskReducer;

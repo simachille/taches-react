@@ -5,10 +5,10 @@ import { Container, Jumbotron, Button, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 // 7- import actions
-import { setWIP } from "../../actions";
+import { setWIP, setTODO } from "../../actions";
 const Welcome = () => {
   // 6"- lecture d'une donnée
-  const task = useSelector(state => state.taskReducer);
+  const status = useSelector(state => state.taskReducer);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -21,12 +21,17 @@ const Welcome = () => {
     <section className="page d-flex align-items-center">
       <Container>
         <Row className="align-items-center">
-          <Col md={6} xs={6} className="mx-auto">
+          <Col md={6} xs={12} className="mx-auto">
             <Jumbotron className="text-center">
-              <h2 className="title"> {task}</h2>
+              <h2 className="title"> {status}</h2>
 
-              <button onClick={() => dispatch(setWIP())}>WIP</button>
+              {status === "TODO" && (
+                <button onClick={() => dispatch(setWIP())}>WIP</button>
+              )}
 
+              {status === "WIP" && (
+                <button onClick={() => dispatch(setTODO())}>TODO</button>
+              )}
               <p>Application de gestion des tâches</p>
               <p>
                 <Button
