@@ -3,10 +3,12 @@ import "./tasks.css";
 import { columns } from "../../util/data";
 import TaskItem from "../task-item/task-item";
 import { TASKS_URL } from "../../util/data";
+import { useSelector } from "react-redux";
 
 function Tasks() {
   const [list, setTasks] = useState([]);
 
+  const status = useSelector(state => state.taskReducer);
   const handleDelete = taskId => {
     setTasks(list.filter(task => task.id !== taskId));
   };
@@ -31,7 +33,7 @@ function Tasks() {
 
   return (
     <React.Fragment>
-      <h1 className="pb-2 pt-4 text-white">Tâches</h1>
+      <h1 className="pb-2 pt-4 text-white">Tâches {status}</h1>
       <section className="tasks row d-flex my-3">
         {columns.map(column => (
           <div className="col-md-3 mb-2" key={column.id}>

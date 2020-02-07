@@ -5,7 +5,7 @@ import { Container, Jumbotron, Button, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 // 7- import actions
-import { setWIP, setTODO } from "../../actions";
+import { setWIP, setTODO, updateStatus } from "../../actions";
 const Welcome = () => {
   // 6"- lecture d'une donnée
   const status = useSelector(state => state.taskReducer);
@@ -15,7 +15,10 @@ const Welcome = () => {
   const redirectToTasks = () => {
     history.push("/taches");
   };
-
+  const getStatus = () => {
+    const items = ["TODO", "WIP", "TEST", "DONE"];
+    return items[Math.floor(Math.random() * items.length)];
+  };
   // 7- Action: Quand un evènement(click) arrive il faut dispatcher l'action vers le reducer
   return (
     <section className="page d-flex align-items-center">
@@ -25,13 +28,10 @@ const Welcome = () => {
             <Jumbotron className="text-center">
               <h2 className="title"> {status}</h2>
 
-              {status === "TODO" && (
-                <button onClick={() => dispatch(setWIP())}>WIP</button>
-              )}
+              <button onClick={() => dispatch(updateStatus(getStatus()))}>
+                status
+              </button>
 
-              {status === "WIP" && (
-                <button onClick={() => dispatch(setTODO())}>TODO</button>
-              )}
               <p>Application de gestion des tâches</p>
               <p>
                 <Button
