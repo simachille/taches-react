@@ -1,10 +1,13 @@
-import React, { useCallback } from "react";
+import React, { useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./sign-in.css";
 import { useFormik } from "formik";
+import { Redirect } from "react-router-dom";
+import AuthContext from "../../context/auth-context";
 
-const SignIn = ({ history }) => {
-  
+const SignIn = () => {
+  const { user, login } = useContext(AuthContext);
+
   const validate = values => {
     const errors = {};
     if (!values.password) {
@@ -29,18 +32,13 @@ const SignIn = ({ history }) => {
     },
     validate,
     onSubmit: values => {
-      submit(values);
+      login(values);
     }
   });
 
-  const submit = useCallback(
-    values => {
-      localStorage.setItem("AUTH_KEY", JSON.stringify(values, null, 2));
-      history.push("/");
-    },
-    [history]
-  );
-
+  if (user) {
+    return <Redirect to="/" />;
+  }
   return (
     <section className="d-flex align-items-center">
       <Container>
